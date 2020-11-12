@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 const firebase = require("firebase");
-const { query } = require("express");
 const db = firebase.firestore();
 const blogposts = db.collection("blogposts");
 
