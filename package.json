@@ -18,9 +18,10 @@
   },
   "homepage": "https://github.com/laraferreri/exercise-4#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "firebase": "^8.0.1"
   },
   "engines": {
-  "node": "12.x"
+    "node": "12.x"
   }
 }
