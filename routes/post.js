@@ -1,7 +1,27 @@
 const express = require("express");
-
 const router = express.Router();
 
-router.get("/", (req,res) => res.send("A Blog Post"));
+const firebase = require("firebase");
+const db = firebase.firestore();
+const blogposts = db.collection("blogposts");
 
-module.exports = router; 
+router.get("/:id", (req, res) => {
+  const queryId = req.params.id;
+  blogposts
+    .doc(queryId)
+    .get()
+    .then(function (doc) {
+      if (doc.exists) {
+        const data = doc.data();
+        console.log(data);
+        return res.send(data);
+      } else {
+        return res.send("No document exists");
+      }
+    })
+    .catch(function (error) {
+      return res.send(error);
+    });
+});
+
+module.exports = router;
