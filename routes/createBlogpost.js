@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const form = `
-<form action="/submit">
+<form action="/create/submit">
 <input type= "text" name="title" placeholder="Title of Post" />
 <input type= "text" name="title" placeholder="Text of Post" />
 <input type= "text" name="title" placeholder="Author" />
