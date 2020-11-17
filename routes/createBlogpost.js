@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const firebase = require("firebase");
+const db = firebase.firestore();
+const blogposts = db.collection("blogposts");
 
 const form = `
 <form action="/create/submit">
@@ -14,8 +17,7 @@ const form = `
 router.get("/", (req, res) => res.send(form));
 
 router.get("/submit", (req, res) => {
-  res.send("hi");
-  const queryPArams = req.query;
+  const queryParams = req.query;
   const idFromTitle = queryParams.title.replace(/\+/g, "-").toLowerCase();
   blogposts
     .doc(idFromTitle)
